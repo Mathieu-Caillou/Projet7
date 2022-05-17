@@ -1,4 +1,4 @@
-# projet7
+# vue
 
 ## Project setup
 ```
