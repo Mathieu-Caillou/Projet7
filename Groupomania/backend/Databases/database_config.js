@@ -1,6 +1,6 @@
-require("dotenv").config(); // Afin d'utiliser les variables d'environnement pour la connexion
+require("dotenv").config(); 
 
-// Paramètres de connexion à la BDD MySql via Sequelize ----------------------------------------------------------------
+
 module.exports = {
   HOST: process.env.DB_HOST,
   USER: process.env.DB_USER,

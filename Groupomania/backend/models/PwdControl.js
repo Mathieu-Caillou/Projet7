@@ -9,6 +9,5 @@ passwordSchema
 .has().lowercase() 
 .has().digits() 
 .has().not().spaces()
-.is().not().oneOf(["Password", "Pwd", "Password123", "Pwd123", "AZERTY", "QWERTY"]); 
 
 module.exports = passwordSchema;

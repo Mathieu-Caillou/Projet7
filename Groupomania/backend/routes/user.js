@@ -14,4 +14,4 @@ router.get('/accounts/:id', auth, userCtrl.getUser);
 router.put('/accounts/:id', auth, multer, userCtrl.updateUser); 
 router.delete('/accounts/:id', auth, multer, userCtrl.deleteUser); 
 
-module.exports = router;
+module.exports = router;    

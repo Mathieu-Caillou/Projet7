@@ -7,10 +7,6 @@ const postsRoutes = require("./routes/posts.js");
 
 const app = express();
 
-app.get("/", (req, res) => {
-  console.log("test")
-  res.send("Test2")
-});
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
