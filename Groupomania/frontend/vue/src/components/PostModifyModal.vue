@@ -32,18 +32,14 @@
 <script>
 import { XCircleIcon } from "@heroicons/vue/solid";
 import { mapState } from "vuex";
-
 export default {
   name: "modifyModal",
-
   components: { XCircleIcon },
-
   data: function() {
     return {
       file: null,
     };
   },
-
   computed: {
     validatedFields: function() {
       if (
@@ -56,43 +52,34 @@ export default {
         return false;
       }
     },
-
     ...mapState({
       messages: (state) => state.message,
       post: (state) => state.post,
     }),
   },
-
   methods: {
     uploadFile() {
       const file = this.$refs.file.files[0];
       this.file = file;
     },
-
     modifyPost: function() {
       // Même schéma que pour la création des posts, mis à part que le payload comporte l'id du post en plus du data
-
       let id = this.$route.params.id;
-
       const formData = new FormData();
-
       if (this.post.message !== null) {
         formData.append("message", this.post.message);
       }
-
       if (this.post.link !== null) {
         formData.append("link", this.post.link);
       }
       if (this.file !== null) {
         formData.append("image", this.file);
       }
-
       this.$store.dispatch("updatePost", {
         id: id,
         data: formData,
       });
     },
-
     close() {
       this.$emit("close");
     },

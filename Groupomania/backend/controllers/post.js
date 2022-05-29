@@ -123,13 +123,17 @@ exports.getAllPosts = (req, res, next) => {
 exports.updatePost = async (req, res, next) => {
   let newImageUrl;
   let post = await db.Post.findOne({ where: { id: req.params.id } });
-
-  // renvoyer une nouvelle image si une est ajoutée
   if (req.file) {
-    newImageUrl = `${req.protocol}://${req.get("host")}/images/${req.file.filename}`;
+    newImageUrl = `${req.protocol}://${req.get("host")}/images/${
+      req.file.filename
+    }`;
+  }
+  if (thing.userId !== req.auth.userId) {
+    res.status(400).json({
+      error: new Error('Unauthorized request!')
+    });
   }
 
-  // si nouvelle image, et image précédente existante remplacer cette dernière et la supprimer
   if (newImageUrl && post.imageURL) {
     const filename = post.imageURL.split("/images/")[1];
     fs.unlink(`images/${filename}`, (error) => {
@@ -149,7 +153,7 @@ exports.updatePost = async (req, res, next) => {
       db.Post.update(
         {
           message: req.body.message,
-          imageURL: newImageUrl, // si nouvelle image, l'enregistrer 
+          imageURL: newImageUrl, 
           link: req.body.link,
         },
         {

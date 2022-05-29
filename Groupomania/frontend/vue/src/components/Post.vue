@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div  class="Post-container">
+    <div class="Post-container">
       <div>
         <div class="container-picture">
           <img class="profile-picture" v-if="post.User.picture !== null" :src="post.User.picture" alt="photo de profil"/>
@@ -24,11 +24,11 @@
         </div>
       </div>
 
-      <div>
-        <img v-if="post.imageURL !== null" :src="post.imageURL" class="media-container" alt="image postée"/>
+      <div v-if="post.imageURL !== null">
+        <img  :src="post.imageURL" class="media-container" alt="image postée"/>
       </div>
-      <div>
-        <img v-if="post.link !== null" :src="post.link" class="media-container" alt="gif posté"/>
+      <div v-if="post.link !== null">
+        <img  :src="post.link" class="media-container" alt="gif posté"/>
       </div>
       <div>
         <p class="post-txt">{{ post.message }}</p>

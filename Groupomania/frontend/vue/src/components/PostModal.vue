@@ -1,26 +1,26 @@
 <template>
-  <div class="fixed bottom-0 inset-x-0 flex" @click.stop>
-    <div class="fixed inset-0 transition-opacity">
-      <div class="">
-        <div class="" role="dialog" aria-modal="true" aria-label="modal création de post">
+  <div @click.stop>
+    <div>
+      <div>
+        <div role="dialog" aria-modal="true" aria-label="modal création de post">
           <div>
             <button type="button" aria-label="fermer" @click="close" class="btn-icons">
-              <XCircleIcon class=""/>
+              <XCircleIcon/>
             </button>
           </div>
-            <h2 class="">Créer un post</h2>
+            <h2>Créer un post</h2>
             <form>
               <div>
                 <textarea v-model="message"
                   class="Post-Text" type="text" placeholder="Votre message" aria-label="Ecrire un message"/>
-                <p class="">La publication doit contenir au moins un message, qui peut être agrémenté par une image issue d'un fichier, ou d'un lien.<br />
+                <p>La publication doit contenir au moins un message, qui peut être agrémenté par une image issue d'un fichier, ou d'un lien.<br />
                   Les images doivent utiliser les formats suivants : .jpeg, .png, .gif
                 </p>
-                <input @change="uploadFile" ref="file" name="image" class="" type="file" accept="image/png, image/jpeg, image/gif" aria-label="Rajouter un fichier"  />
-                <input v-model="link" class="" type="text" placeholder="Votre lien" aria-label="Rajouter un lien"/>
+                <input @change="uploadFile" ref="file" name="image" type="file" accept="image/png, image/jpeg, image/gif" aria-label="Rajouter un fichier"  />
+                <input v-model="link" type="text" placeholder="Votre lien" aria-label="Rajouter un lien"/>
               </div>
-              <div class="">
-                <button type="button" @click=" submitPost(); close();" class="" :disabled="!validatedFields" :class="{ 'opacity-25 cursor-not-allowed': !validatedFields }">
+              <div>
+                <button type="button" @click=" submitPost(); close();" :disabled="!validatedFields" :class="{ 'opacity-25 cursor-not-allowed': !validatedFields }">
                   <span v-if="messages == 'Post publié !'">Publication en cours...</span>
                   <span v-else>Publier</span>
                 </button>

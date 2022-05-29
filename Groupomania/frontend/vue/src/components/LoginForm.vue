@@ -3,7 +3,7 @@
       <form>
           <div class="input-container">
             <input v-model="username" class="input" type="text" placeholder="Votre nom d'utilisateur" aria-label="nom d'utilisateur">
-            <input v-model="password" class="input" type="text" placeholder="Votre mot de passe" aria-label="mot de passe">
+            <input v-model="password" class="input" type="password" placeholder="Votre mot de passe" aria-label="mot de passe">
           </div>
           <div>
              <button type="button" class="login-btn" aria-label="Connexion" @click="logToAccount();" :disabled="!validatedFields" :class="{ 'opacity-25 cursor-not-allowed': !validatedFields }">
